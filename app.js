@@ -104,7 +104,8 @@ d3.csv("dataset.csv", function(error, data) {
       .ease(d3.easeLinear)
       .duration(2000)
     .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
-      .attr("dy", ".35em")
+      .attr("dy", ".50em")
+      .attr("text-anchor", "middle")
       .text(function(d) { return d.data.ConsumerGroup; });
     
 
