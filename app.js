@@ -1,7 +1,7 @@
 // margin
 var margin = {top: 20, right: 20, bottom: 20, left: 20},
-    width = 500 - margin.right - margin.left,
-    height = 500 - margin.top - margin.bottom,
+    width = 300 - margin.right - margin.left,
+    height = 300 - margin.top - margin.bottom,
     radius = width/2;
 
 // color range
@@ -106,6 +106,7 @@ d3.csv("dataset.csv", function(error, data) {
     .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
       .attr("dy", ".50em")
       .attr("text-anchor", "middle")
+      .style("font-size", "10px")
       .text(function(d) { return d.data.ConsumerGroup; });
     
 
