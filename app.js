@@ -1,7 +1,7 @@
 // margin
 var margin = {top: 20, right: 20, bottom: 20, left: 20},
-    width = 300 - margin.right - margin.left,
-    height = 300 - margin.top - margin.bottom,
+    width = 260 - margin.right - margin.left,
+    height = 260 - margin.top - margin.bottom,
     radius = width/2;
 
 // color range
