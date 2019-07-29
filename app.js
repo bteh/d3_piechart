@@ -1,7 +1,7 @@
 // margin
 var margin = {top: 20, right: 20, bottom: 20, left: 20},
-    width = 300 - margin.right - margin.left,
-    height = 300 - margin.top - margin.bottom,
+    width = 250 - margin.right - margin.left,
+    height = 250 - margin.top - margin.bottom,
     radius = width/2;
 
 // color range
@@ -42,7 +42,12 @@ var div = d3.select("body")
 //   .append("g")
 //     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+// format number with comma
+var formatComma = d3.format(",")
+
+
 // generate pie chart and donut chart
+
 var pie = d3.pie()
     .sort(null)
     .value(function(d) { return d.Revenue; });
@@ -78,7 +83,7 @@ d3.csv("dataset.csv", function(error, data) {
       .on("mousemove",function(d){
         var mouseVal = d3.mouse(this);
         div.style("display","none")
-        .html("Revenue: "+d.data.Revenue)
+        .html("Revenue: "+ formatComma(d.data.Revenue))
         .style("left", (d3.event.pageX + 10) + "px")
         .style("top", (d3.event.pageY - 10) + "px")
         .style("opacity", 1)
@@ -86,7 +91,6 @@ d3.csv("dataset.csv", function(error, data) {
         .style('position', 'absolute')
     })
     .on("mouseout",function(){div.html(" ").style("display","none");})
-   
 
   // append path 
   g.append("path")
@@ -106,7 +110,9 @@ d3.csv("dataset.csv", function(error, data) {
     .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
       .attr("dy", ".50em")
       .attr("text-anchor", "middle")
-      .style("font-size", "10px")
+      .style("font-size", "7px")
+      .style('font-family', 'Times New Roman', 'serif')
+      .style('font-weight', 'bold')
       .text(function(d) { return d.data.ConsumerGroup; });
     
 
